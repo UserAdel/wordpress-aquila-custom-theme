@@ -60,11 +60,21 @@ function aquila_enqueue_scripts()
         false,
         true
     );
+
+    wp_register_script(
+        'tailwindcss', // Handle name
+        'https://cdn.tailwindcss.com', // CDN URL
+        array(), // Dependencies
+        null, // Version (null = no version param)
+        false // Load in header (not footer)
+    );
+
     //Enqueue Styles
     wp_enqueue_style('aquila-style');
     wp_enqueue_style('bootsrap-css');
     // Enqueue Script
     wp_enqueue_script('aquila-main');
     wp_enqueue_script('bootstrap-js');
+    wp_enqueue_script('tailwindcss');
 }
 add_action('wp_enqueue_scripts', 'aquila_enqueue_scripts');
