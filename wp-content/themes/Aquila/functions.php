@@ -37,7 +37,7 @@ function aquila_enqueue_scripts()
         'all'
     );
     wp_register_style(
-        'bootsrap-css',
+        'bootstrap-css',
         get_template_directory_uri() . '/assets/src/library/css/bootstrap.min.css',
         [],
         false,
@@ -55,26 +55,27 @@ function aquila_enqueue_scripts()
     );
     wp_register_script(
         'bootstrap-js',
-        get_template_directory_uri() . '/assets/src/library/js/bootstrap.min.js',
-        ['jquery'],
+        get_template_directory_uri() . '/assets/src/library/js/bootstrap.bundle.min.js',
+        [],
         false,
         true
     );
 
-    wp_register_script(
-        'tailwindcss', // Handle name
-        'https://cdn.tailwindcss.com', // CDN URL
-        array(), // Dependencies
-        null, // Version (null = no version param)
-        false // Load in header (not footer)
-    );
+    // wp_register_script(
+    //     'tailwindcss',
+    //     'https://cdn.tailwindcss.com',
+    //     array(),
+    //     null,
+    //     false 
+    // );
 
     //Enqueue Styles
     wp_enqueue_style('aquila-style');
-    wp_enqueue_style('bootsrap-css');
+    wp_enqueue_style('bootstrap-css');
     // Enqueue Script
+    wp_enqueue_script('jquery'); // WordPress built-in jQuery
     wp_enqueue_script('aquila-main');
     wp_enqueue_script('bootstrap-js');
-    wp_enqueue_script('tailwindcss');
+    // wp_enqueue_script('tailwindcss');
 }
 add_action('wp_enqueue_scripts', 'aquila_enqueue_scripts');

@@ -18,6 +18,8 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <header>
-        Header
+<div class="site" id="page">
+    <header class="site-header" role="banner" id="masthead">
+        <?php get_template_part('template-parts/header/nav'); ?>
     </header>
+    <div id="content" class="site-content">

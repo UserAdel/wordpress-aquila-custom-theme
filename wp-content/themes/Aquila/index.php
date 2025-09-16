@@ -17,7 +17,6 @@ get_header();
         <option value="2">Two</option>
         <option value="3">Three</option>
     </select>
-    <div class="bg-red-500 w-[100px] h-[100px]">bg-red-500</div>
 </div>
 
 <?php
