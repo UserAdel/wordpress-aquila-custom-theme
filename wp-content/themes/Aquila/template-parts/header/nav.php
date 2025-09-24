@@ -14,7 +14,10 @@
       <a class="navbar-brand" href="#">Hidden brand</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <?php
+          if(function_exists('the_custom_log'))
+          the_custom_log()
+          ?>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
