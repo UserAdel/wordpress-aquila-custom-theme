@@ -12,7 +12,6 @@ class Assets {
     protected function __construct() {
     
         //load class.
-        Assets::get_instance();
         $this->setup_hooks();
 
     }
@@ -34,5 +33,25 @@ class Assets {
 		'flex-width'           => true,
 		// 'unlink-homepage-logo' => true, 
        ]);
+       
+       add_theme_support('post-thumbnails');
+       add_theme_support('customize-selective-refresh-widgets');
+       add_theme_support('automatic-feed-links');
+       add_theme_support('html5',[
+           'search-form',
+           'comment-form',
+           'comment-list',
+           'gallery',
+           'caption',
+           'script',
+           'style',
+       ]);
+       add_editor_style();
+       add_theme_support('wp-block-style');
+       add_theme_support('align-wide');
+       global $contnet_width;
+       if(!isset($contnet_width)){
+           $contnet_width = 1240;
+       }
     }
 }

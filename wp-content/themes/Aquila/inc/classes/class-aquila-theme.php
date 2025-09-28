@@ -16,6 +16,9 @@ use AQUILA_THEME\Inc\Traits\Singleton;
     
         //load class.
         $this->setup_hooks();
+        Assets::get_instance();
+        Menus::get_instance();
+
 
     }
     
@@ -95,5 +98,7 @@ use AQUILA_THEME\Inc\Traits\Singleton;
         wp_enqueue_script('aquila-main');
         wp_enqueue_script('bootstrap-js');
         }
+
+        
     }
 

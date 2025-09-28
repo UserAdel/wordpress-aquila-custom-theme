@@ -11,14 +11,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Hidden brand</a>
+      <a class="navbar-brand" href="#">
+        <?php
+        if (function_exists('the_custom_logo')) {
+            the_custom_logo();
+        } else {
+            echo get_bloginfo('name');
+        }
+        ?>
+      </a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <?php
-          if(function_exists('the_custom_log'))
-          the_custom_log()
-          ?>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
@@ -33,3 +35,9 @@
     </div>
   </div>
 </nav>
+<?php
+wp_nav_menu(
+  ['theme_location'=>'aquila-header-menu',
+  'container_class'=>'my_extra_menu_class']
+);
+?>
