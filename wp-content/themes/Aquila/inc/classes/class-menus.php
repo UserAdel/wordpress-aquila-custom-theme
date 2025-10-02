@@ -28,6 +28,24 @@ class Menus {
             'aquila-footer-menu' => esc_html__('Footer Menu', 'aquila')
         ]);
      }
-       
+      public function get_menu_id($location){
+         // Get all registered menu locations.
+         $locations = \get_nav_menu_locations();
+         // Get menu ID mapped to the provided location key.
+         $menu_id = isset($locations[$location]) ? $locations[$location] : 0;
+         return ! empty($menu_id) ? $menu_id : "";
+      }
+     public function get_child_menu_items($menu_array,$parent_id=0){
+        $child_menu =[];
+         if(!empty($menu_array)&&is_array($menu_array)){
+            foreach($menu_array as $menu){
+                if(intval($menu->menu_item_parent)===$parent_id){
+                  array_push($child_menu,$menu);
+                }
+            }
+         }
+        return $child_menu;
+     }
  
+
 }
